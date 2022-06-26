@@ -1,12 +1,12 @@
 import React from 'react';
+import { Icon } from '@chakra-ui/react'
 import { MdShoppingCart } from "react-icons/md";
-import "./styles.css";
 
 const CartWidget = () => { 
     return (
         < >
-            <button className="CartBtn">
-                <MdShoppingCart className="CartIcon"/>
+            <button className="CartBtn" >
+                <Icon as={MdShoppingCart} w={7} h={7} />
             </button>
         </>
     );
