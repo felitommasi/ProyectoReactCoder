@@ -24,10 +24,10 @@ const ItemListContainer = ({ greeting }) => {
             setLoading(false);
         };
     };
-
+ 
     useEffect(()=>{
         getProducts()
-    },[])
+    },[]) 
 
 	return (
 		<>
