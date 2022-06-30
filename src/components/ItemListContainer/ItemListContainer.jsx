@@ -1,19 +1,40 @@
-import React from 'react';
-import ItemCount from '../ItemCount/ItemCount';
-import { Text } from "@chakra-ui/react"
+import React, { useEffect, useState } from "react";
+import ItemList from "../ItemList/ItemList";
+import { Text } from "@chakra-ui/react";
+import { getData } from "../../mocks/fakeapi";
 
-export const ItemListContainer = ({ greeting }) => {
-    
-    const onAdd = (quantity) => {
-        console.log(`Añadiste ${quantity} unidades`);
+const ItemListContainer = ({ greeting }) => {
+ 	const [productList, setProductList] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getData
+        .then((result) => setProductList(result))
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false))
+    },[])
+
+    const getProducts = async () => {
+        try {
+            const result = await getData;
+            setProductList(result);
+        } catch (error) {
+            console.log(error);
+        }finally{
+            setLoading(false);
+        };
     };
-    
-    return (
-        <>
-            <Text fontSize='2rem'>{greeting}</Text>
-            <ItemCount initial={0} stock={10} onAdd={onAdd} />
-        </>
-    );
+
+    useEffect(()=>{
+        getProducts()
+    },[])
+
+	return (
+		<>
+			<Text fontSize="2rem">{greeting}</Text>
+			{loading ? <p>Cargando...</p> : <ItemList productList={productList}/>}
+		</>
+	);
 };
 
 export default ItemListContainer;

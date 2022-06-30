@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, /* useEffect */ } from "react";
 import { Button, HStack, VStack } from "@chakra-ui/react";
 import { MdShoppingCart } from "react-icons/md";
 
-export const ItemCount = ({ initial, stock, onAdd }) => {
-	const [count, setCount] = useState(parseInt(initial));
+const ItemCount = ({ stock, onAdd }) => {
+	const [count, setCount] = useState(0);
 
 	const decreaseCount = () => {
 		setCount(count - 1);
@@ -13,9 +13,10 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
 		setCount(count + 1);
 	};
 
-	useEffect(() => {
+/* 	useEffect(() => {
 		setCount(parseInt(initial));
-	}, [initial]);
+	}, [initial]); */
+
 
 	return (
 		<VStack>
