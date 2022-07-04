@@ -1,28 +1,31 @@
 import React from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
-import ItemCount from "../ItemCount/ItemCount";
+import { Box, Text, Image, Button, Center } from "@chakra-ui/react";
 
-const onAdd = (quantity) => {
-	console.log(`Añadiste ${quantity} unidades`);
-};
 
 const Item = ({ product }) => {
 	console.log(product);
 	const { title, description, image } = product;
 
 	return (
-		<Box boxShadow="md" rounded="4px" w="230px" overflow="hidden" bg="gray.100">
+		<Box boxShadow="md" minW="270px" maxW="400px" rounded="4px" h="auto" overflow="hidden" bg="gray.100">
 			{/*  reemplazar imagen */}
-			<Image src={image} fallbackSrc="https://via.placeholder.com/230" />
-			<Text p={5} fontSize="md">
-				{title}
-			</Text>
-			<Text p={5} fontSize="sm">
-				{description}
-			</Text>
-			<Box p={5} mb={2}>
-				<ItemCount initial={0} stock={10} onAdd={onAdd} />
+			<Box h="300" w={"100%"} align={"center"} overflow="hidden">
+				<Image src={image} fallbackSrc="https://via.placeholder.com/230" />
 			</Box>
+			<Box>
+				<Text p={5} fontSize="md" fontWeight="semibold">
+					{title}
+				</Text>
+			</Box>
+			<Box>
+				<Text p={5} fontSize="sm">
+					{description}
+				</Text>
+			</Box>
+			<Center>
+				<Button p={5} mb={6} colorScheme='twitter'>Ver Detalle</Button>
+			</Center>
+
 		</Box>
 	);
 };
