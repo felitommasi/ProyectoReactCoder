@@ -29,10 +29,12 @@ const ItemListContainer = ({ greeting }) => {
 		getProducts();
 	}, []);
 
+
 	return (
 		<>
 			<Text fontSize="2rem">{greeting}</Text>
 			{loading ? <p>Cargando...</p> : <ItemList productList={productList} />}
+
 		</>
 	);
 };

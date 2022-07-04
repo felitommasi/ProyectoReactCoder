@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Text, Image, Button, Center } from "@chakra-ui/react";
 
+
 const Item = ({ product }) => {
 	console.log(product);
 	const { title, description, image } = product;
@@ -24,6 +25,7 @@ const Item = ({ product }) => {
 			<Center>
 				<Button p={5} mb={6} colorScheme='twitter'>Ver Detalle</Button>
 			</Center>
+
 		</Box>
 	);
 };

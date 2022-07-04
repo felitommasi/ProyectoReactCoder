@@ -2,9 +2,11 @@ import React from "react";
 import Item from "../Item/Item";
 import { Box, SimpleGrid, Text, Center } from "@chakra-ui/react";
 
+
 const ItemList = ({ productList }) => {
 	//const {productList}=props
 	return (
+
 		<Box p={[2, 4, 6, 8]}>
 			<Center>
 				<Text fontWeight="bold" fontSize="xl" mb="4">
@@ -18,6 +20,7 @@ const ItemList = ({ productList }) => {
 				))}
 			</SimpleGrid>
 		</Box>
+
 	);
 };
 
