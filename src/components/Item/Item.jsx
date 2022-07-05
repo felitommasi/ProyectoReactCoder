@@ -13,7 +13,7 @@ const Item = ({ product }) => {
 				<Image src={image} fallbackSrc="https://via.placeholder.com/230" />
 			</Box>
 			<Box>
-				<Text p={5} fontSize="md" fontWeight="semibold">
+				<Text p={5} fontSize="lg" fontWeight="semibold">
 					{title}
 				</Text>
 			</Box>

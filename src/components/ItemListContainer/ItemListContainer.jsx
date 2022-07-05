@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
+import SkeletonScreen from "../SkeletonScreen/SkeletonScreen";
 import { Text } from "@chakra-ui/react";
 import { getData } from "../../mocks/fakeapi";
 
@@ -33,7 +34,7 @@ const ItemListContainer = ({ greeting }) => {
 	return (
 		<>
 			<Text fontSize="2rem">{greeting}</Text>
-			{loading ? <p>Cargando...</p> : <ItemList productList={productList} />}
+			{loading ? <SkeletonScreen/> : <ItemList productList={productList} />}
 
 		</>
 	);

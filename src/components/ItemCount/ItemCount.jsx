@@ -3,7 +3,7 @@ import { Button, HStack, VStack } from "@chakra-ui/react";
 import { MdShoppingCart } from "react-icons/md";
 
 const ItemCount = ({ stock, onAdd }) => {
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(1);
 
 	const decreaseCount = () => {
 		setCount(count - 1);
@@ -13,13 +13,8 @@ const ItemCount = ({ stock, onAdd }) => {
 		setCount(count + 1);
 	};
 
-/*  	useEffect(() => {
-		setCount(parseInt(initial));
-	}, [initial]);  */
-
-
 	return (
-		<VStack>
+		<VStack alignItems="flex-start">
 			<HStack spacing="40px" mb="16px" bg="white" rounded="8px" p={1}>
 				<Button
 					disabled={count <= 0}
