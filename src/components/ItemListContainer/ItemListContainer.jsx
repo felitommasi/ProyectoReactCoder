@@ -15,7 +15,7 @@ const ItemListContainer = ({ greeting }) => {
 			.finally(() => setLoading(false));
 	}, []);
 
-	const getProducts = async () => {
+/* 	const getProducts = async () => {
 		try {
 			const result = await getData;
 			setProductList(result);
@@ -28,14 +28,12 @@ const ItemListContainer = ({ greeting }) => {
 
 	useEffect(() => {
 		getProducts();
-	}, []);
-
+	}, []); */
 
 	return (
 		<>
 			<Text fontSize="2rem">{greeting}</Text>
-			{loading ? <SkeletonScreen/> : <ItemList productList={productList} />}
-
+			{loading ? <SkeletonScreen /> : <ItemList productList={productList} />}
 		</>
 	);
 };

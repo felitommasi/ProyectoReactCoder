@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { getData } from "../../mocks/fakeapi";
 
 const ItemDetailContainer = () => {
-	const [product, setProduct] = useState([]);
+	const [product, setProduct] = useState({});
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
