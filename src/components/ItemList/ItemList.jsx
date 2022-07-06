@@ -13,11 +13,12 @@ const ItemList = ({ productList }) => {
 				</Text>
 			</Center>
 
-		 	<SimpleGrid minChildWidth="230px" spacing="40px">
+			<SimpleGrid minChildWidth="230px" spacing="40px" justifyItems="center">
 				{productList.map((product) => (
 					<Item key={product.id} product={product} />
 				))}
-			</SimpleGrid> 
+			</SimpleGrid>
+
 		</Box>
 	);
 };

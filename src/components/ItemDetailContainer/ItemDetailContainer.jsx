@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import SkeletonCard from "../Skeletons/SkeletonCard";
 import { getProd } from "../../mocks/fakeapi";
 import { useParams } from "react-router-dom";
 
@@ -7,7 +8,7 @@ const ItemDetailContainer = () => {
 	const [product, setProduct] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	const {id} = useParams();
+	const { id } = useParams();
 
 	useEffect(() => {
 		getProd(id)
@@ -16,12 +17,7 @@ const ItemDetailContainer = () => {
 			.finally(() => setLoading(false));
 	}, [id]);
 
-
-	return ( 
-	<>
-	{loading ? <p>Cargando...</p> : <ItemDetail product={product} />}
-	</>
-	);
+	return <>{loading ? <SkeletonCard /> : <ItemDetail product={product} />}</>;
 };
 
 export default ItemDetailContainer;
