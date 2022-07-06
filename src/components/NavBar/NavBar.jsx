@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import { Flex, HStack, chakra, Heading } from "@chakra-ui/react";
 import CartWidget from "../CartWidget/CartWidget";
 
@@ -22,6 +22,10 @@ const navLinks = [
 ];
 
 const NavBar = () => {
+	let activeStyle = {
+		textDecoration: "underline",
+	};
+
 	return (
 		<chakra.header id="header" bg="brand.secondary">
 			<Flex w="100%" px="6" py="5" align="center" justify="space-between">
@@ -31,9 +35,13 @@ const NavBar = () => {
 
 				<HStack as="nav" spacing="10" color="white" fontWeight="bold">
 					{navLinks.map((category) => (
-						<Link to={category.path} key={category.id}>
+						<NavLink
+							to={category.path}
+							key={category.id}
+							style={({ isActive }) => (isActive ? activeStyle : undefined)}
+						>
 							{category.name}
-						</Link>
+						</NavLink>
 					))}
 				</HStack>
 
