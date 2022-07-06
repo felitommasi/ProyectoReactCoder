@@ -19,8 +19,6 @@ const onAdd = (quantity) => {
 };
 
 const ItemDetail = ({ product }) => {
-	const productDetail = product[2];
-	console.log(productDetail);
 	return (
 		<>
 			<Container maxW={"7xl"}>
@@ -31,7 +29,7 @@ const ItemDetail = ({ product }) => {
 				>
 					<Flex>
 						<Image
-							src={productDetail.image}
+							src={product.image}
 							alt={"product image"}
 							overflow={"hidden"}
 							align={"center"}
@@ -48,14 +46,14 @@ const ItemDetail = ({ product }) => {
 								fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
                                 mb={4}
 							>
-								{productDetail.title}
+								{product.title}
 							</Heading>
 							<Text
 								color={useColorModeValue("gray.900", "gray.400")}
 								fontWeight={300}
 								fontSize={"2xl"}
 							>
-								${productDetail.price}
+								${product.price}
 							</Text>
 						</Box>
 
@@ -69,9 +67,9 @@ const ItemDetail = ({ product }) => {
 							}
 						>
 							<VStack spacing={{ base: 4, sm: 6 }}>
-								<Text fontSize={"lg"}>{productDetail.description}</Text>
+								<Text fontSize={"lg"}>{product.description}</Text>
 							</VStack>
-							<ItemCount initial={0} stock={10} onAdd={onAdd} />
+							<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
 						</Stack>
 					</Stack>
 				</SimpleGrid>

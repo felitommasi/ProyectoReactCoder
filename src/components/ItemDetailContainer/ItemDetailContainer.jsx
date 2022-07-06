@@ -1,40 +1,27 @@
 import React, { useEffect, useState } from "react";
-//import { Text } from "@chakra-ui/react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getData } from "../../mocks/fakeapi";
+import { getProd } from "../../mocks/fakeapi";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-	const [product, setProduct] = useState({});
+	const [product, setProduct] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	const {id} = useParams();
+
 	useEffect(() => {
-		getData
+		getProd(id)
 			.then((result) => setProduct(result))
 			.catch((error) => console.log(error))
 			.finally(() => setLoading(false));
-	}, []);
+	}, [id]);
 
-	const getProduct = async () => {
-		try {
-			const result = await getData;
-			setProduct(result);
-		} catch (error) {
-			console.log(error);
-		} finally {
-			setLoading(false);
-		}
-	};
 
-	useEffect(() => {
-		getProduct();
-	}, []);
-
-	return (
-		<>
-			{loading ? <p>Cargando...</p> : <ItemDetail product={product} />}
-		</>
+	return ( 
+	<>
+	{loading ? <p>Cargando...</p> : <ItemDetail product={product} />}
+	</>
 	);
 };
-
 
 export default ItemDetailContainer;

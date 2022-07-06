@@ -4,9 +4,9 @@ import { MdShoppingCart } from "react-icons/md";
 
 const CartWidget = () => { 
     return (
-        < >
-            <button className="CartBtn" >
-                <Icon as={MdShoppingCart} w={7} h={7} />
+        <>
+            <button className="CartBtn">
+                <Icon as={MdShoppingCart} w={8} h={8} color="white"/>
             </button>
         </>
     );
