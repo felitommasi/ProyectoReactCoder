@@ -27,8 +27,8 @@ const NavBar = () => {
 	};
 
 	return (
-		<chakra.header id="header" bg="teal500">
-			<Flex w="100%" px="6" py="5" align="center" justify="space-between">
+		<chakra.header id="header" bg="teal.600">
+			<Flex w="100%" h="80px" px="6" py="5" align="center" justify="space-between">
 				<Heading as="h3" size="lg" color="white">
 					Manawa
 				</Heading>

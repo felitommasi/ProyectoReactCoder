@@ -44,7 +44,7 @@ const ItemDetail = ({ product }) => {
 								lineHeight={1.1}
 								fontWeight={600}
 								fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
-                                mb={4}
+								mb={4}
 							>
 								{product.title}
 							</Heading>
@@ -53,7 +53,7 @@ const ItemDetail = ({ product }) => {
 								fontWeight={300}
 								fontSize={"2xl"}
 							>
-								${product.price}
+								$ {product.price}
 							</Text>
 						</Box>
 

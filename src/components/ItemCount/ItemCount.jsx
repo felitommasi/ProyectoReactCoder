@@ -39,7 +39,7 @@ const ItemCount = ({ stock, onAdd }) => {
 				rightIcon={<MdShoppingCart />}
 				disabled={stock <= 0}
 				onClick={() => onAdd(count)}
-				colorScheme="blue"
+				colorScheme="teal"
 			>
 				Agregar al carrito
 			</Button>

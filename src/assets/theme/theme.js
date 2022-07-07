@@ -2,18 +2,6 @@ import { extendTheme } from '@chakra-ui/react'
 
 // example theme
 const theme = extendTheme({
-  colors: {
-    teal50: "#E6FFFA",
-    teal100: "#B2F5EA",
-    teal200: "#81E6D9",
-    teal300: "#4FD1C5",
-    teal400: "#38B2AC",
-    teal500: "#319795",
-    teal600: "#2C7A7B",
-    teal700: "#285E61",
-    teal800: "#234E52",
-    teal900: "#1D4044",
-  },
   fonts: {
     body: "system-ui, sans-serif",
     heading: "Georgia, serif",
