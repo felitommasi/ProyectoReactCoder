@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
-import SkeletonCard from "../Skeletons/SkeletonCard";
+import SkeletonScreen from "../Skeletons/SkeletonScreen";
 import { getProds } from "../../mocks/fakeapi";
 import { useParams } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const ItemListContainer = () => {
 	return (
 		<>
 			{loading 
-			? <SkeletonCard /> 
+			? <SkeletonScreen /> 
 			: <ItemList productList={productList} />}
 		</>
 	);

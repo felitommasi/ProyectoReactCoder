@@ -37,8 +37,8 @@ const NavBar = () => {
 				justify="space-between"
 			>
 				<NavLink to="/" key="1">
-					<Heading size="lg" color="white">
-						MANAWA
+					<Heading as="p" size="lg" color="white" fontWeight="bold">
+						Shopful
 					</Heading>
 				</NavLink>
 
