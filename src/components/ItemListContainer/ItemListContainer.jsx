@@ -5,6 +5,7 @@ import { getProds } from "../../mocks/fakeapi";
 import { useParams } from "react-router-dom";
 
 
+
 const ItemListContainer = () => {
 	const [productList, setProductList] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -28,3 +29,5 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
+
+

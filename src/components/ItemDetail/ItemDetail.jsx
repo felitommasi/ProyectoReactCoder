@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartContext";
 import {
 	Box,
 	Container,
 	Stack,
 	Text,
 	Image,
+	Button,
 	Flex,
 	VStack,
 	Heading,
@@ -14,11 +17,15 @@ import {
 	useColorModeValue,
 } from "@chakra-ui/react";
 
-const onAdd = (quantity) => {
-	console.log(`Añadiste ${quantity} unidades`);
-};
-
 const ItemDetail = ({ product }) => {
+	const [buyFinalized, setBuyFinalized] = useState(false);
+	const { addProduct } = useContext(CartContext);
+
+	const onAdd = (count) => {
+		addProduct({ ...product, qty: count });
+		setBuyFinalized(true);
+	};
+
 	return (
 		<>
 			<Container maxW={"7xl"}>
@@ -69,7 +76,15 @@ const ItemDetail = ({ product }) => {
 							<VStack spacing={{ base: 4, sm: 6 }}>
 								<Text fontSize={"lg"}>{product.description}</Text>
 							</VStack>
-							<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
+							{buyFinalized ? (
+								<Link to="/cart">
+									<Button colorScheme="teal" my={4}>
+										Finalizar Compra
+									</Button>
+								</Link>
+							) : (
+								<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
+							)}
 						</Stack>
 					</Stack>
 				</SimpleGrid>
