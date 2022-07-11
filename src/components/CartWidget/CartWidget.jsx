@@ -1,20 +1,20 @@
-import React, {useContext} from 'react';
-import { Icon } from '@chakra-ui/react'
+import React, { useContext } from "react";
+import { Button, Stack } from "@chakra-ui/react";
 import { MdShoppingCart } from "react-icons/md";
-import { CartContext } from "../../context/CartContext"; 
+import { CartContext } from "../../context/CartContext";
 
-const CartWidget = () => { 
+const CartWidget = () => {
+	const { qtyProducts } = useContext(CartContext);
 
-    const {qtyProducts} = useContext(CartContext);
-
-    return (
-        <>
-            <button className="CartBtn">
-                <Icon as={MdShoppingCart} w={8} h={8} color="white"/>
-                <p>{qtyProducts}</p>
-            </button>
-        </>
-    );
+	return (
+		<>
+			<Stack direction="row" spacing={4}>
+				<Button leftIcon={<MdShoppingCart />} colorScheme="teal" variant="solid" size="lg">
+					{qtyProducts}
+				</Button>
+			</Stack>
+		</>
+	);
 };
 
 export default CartWidget;
