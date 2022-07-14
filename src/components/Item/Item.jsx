@@ -7,7 +7,7 @@ const Item = ({ product }) => {
 	const { title, description, image, id } = product;
 
 	return (
-		<Box display="flex" flexDirection="column" boxShadow="md" minW="270px" maxW="280px" rounded="4px" h="auto" overflow="hidden" bg="gray.50">
+		<Box display="flex" flexDirection="column" boxShadow="md" maxW="270px" rounded="4px" h="auto" overflow="hidden" bg="gray.50">
 			<Box h="300" w={"100%"} align={"center"} overflow="hidden">
 				<Image src={image} fallbackSrc="https://via.placeholder.com/300" />
 			</Box>
