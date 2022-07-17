@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Button, Stack } from "@chakra-ui/react";
 import { MdShoppingCart } from "react-icons/md";
 import { CartContext } from "../../context/CartContext";
@@ -9,9 +10,16 @@ const CartWidget = () => {
 	return (
 		<>
 			<Stack direction="row" spacing={4}>
-				<Button leftIcon={<MdShoppingCart />} colorScheme="teal" variant="solid" size="lg">
-					{qtyProducts}
-				</Button>
+				<Link to="/cart">
+					<Button
+						leftIcon={<MdShoppingCart />}
+						colorScheme="teal"
+						variant="solid"
+						size="lg"
+					>
+					{qtyProducts === 0 ? <p display="none"></p> : <p>{qtyProducts}</p>}
+					</Button>
+				</Link>
 			</Stack>
 		</>
 	);

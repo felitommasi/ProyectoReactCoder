@@ -37,9 +37,8 @@ const CartCustomProvider = ({ children }) => {
 		return products.some((products) => products.id === id);
 	};
 
-	const clear = () => {
+	const clearCart = () => {
 		setProducts([]);
-		setQtyProducts(0);
 	};
 
 	return (
@@ -50,7 +49,7 @@ const CartCustomProvider = ({ children }) => {
 				removeProduct,
 				isInCart,
 				getQtyProducts,
-				clear,
+				clearCart,
 				qtyProducts,
 			}}
 		>
