@@ -61,7 +61,6 @@ export const getProds = (categoryId) => {
         setTimeout(() => {
             categoryId ? resolve(filteredProducts) : resolve(products);
         }, 1000);
-		console.log(filteredProducts)
     });
 };
 

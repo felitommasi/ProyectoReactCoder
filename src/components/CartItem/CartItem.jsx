@@ -5,19 +5,21 @@ import {
 	Text,
 	Image,
 	Stack,
-    Flex,
-    Link,
+	Flex,
+	Link,
+	Divider,
 	useColorModeValue as mode,
 } from "@chakra-ui/react";
 import { MdOutlineClose } from "react-icons/md";
 import { CartContext } from "../../context/CartContext";
 
 const CartItem = (product) => {
-	const { removeProduct, getQtyProducts } = useContext(CartContext);
+	const { removeProduct } = useContext(CartContext);
 	const { title, image, id, price } = product;
 
 	return (
 		<>
+			<Divider />
 			<Flex
 				direction={{
 					base: "column",
@@ -41,7 +43,7 @@ const CartItem = (product) => {
 						<Stack spacing="0.5">
 							<Text fontWeight="medium">{title}</Text>
 							<Text color={mode("gray.600", "gray.400")} fontSize="sm">
-								Cantidad: {getQtyProducts()}
+								Cantidad: {product.qty}
 							</Text>
 						</Stack>
 					</Box>
@@ -56,13 +58,12 @@ const CartItem = (product) => {
 						md: "flex",
 					}}
 				>
-					
-					<Text fontWeight="medium">sub-total: $ {price}</Text>
-                 
+					<Text fontWeight="medium">sub-total: $ {product.qty * product.price}</Text>
+
 					<IconButton
-                        icon={<MdOutlineClose />}
+						icon={<MdOutlineClose />}
 						aria-label={`Delete ${title} from cart`}
-                        colorScheme="teal"
+						colorScheme="teal"
 						variant="solid"
 						size="lg"
 						onClick={() => removeProduct(id)}
@@ -83,10 +84,11 @@ const CartItem = (product) => {
 					<Link fontSize="sm" textDecor="underline">
 						Delete
 					</Link>
-					
+
 					<Text fontWeight="medium">{price}</Text>
 				</Flex>
 			</Flex>
+			<Divider />
 		</>
 	);
 };

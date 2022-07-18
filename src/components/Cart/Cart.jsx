@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import { Box, Button, Heading, Stack } from "@chakra-ui/react";
+import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
 import CartItem from "../CartItem/CartItem";
 import { CartContext } from "../../context/CartContext";
 
 function Cart() {
-	const { qtyProducts, products, clearCart } = useContext(CartContext);
+	const { qtyProducts, products, clearCart, totalPrice } = useContext(
+		CartContext
+	);
 
 	return (
 		<div>
@@ -56,8 +58,9 @@ function Cart() {
 						</Stack>
 					</Stack>
 
-                    <Button onClick={() => clearCart()}>Vaciar carrito</Button>
+					<Button onClick={() => clearCart()}>Vaciar carrito</Button>
 				</Stack>
+				<Text fontWeight="medium">{totalPrice() === 0 ? <p display="none"/> : <p>Total: $ {totalPrice()}</p>}</Text>
 			</Box>
 		</div>
 	);
