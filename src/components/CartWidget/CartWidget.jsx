@@ -12,12 +12,12 @@ const CartWidget = () => {
 			<Stack direction="row" spacing={4}>
 				<Link to="/cart">
 					<Button
-						leftIcon={<MdShoppingCart />}
+						leftIcon={<MdShoppingCart size={25}/>}
 						colorScheme="teal"
 						variant="solid"
 						size="lg"
 					>
-					{qtyProducts === 0 ? <p display="none"></p> : <p>{qtyProducts}</p>}
+					{qtyProducts === 0 ? <p display="none"/> : <p>{qtyProducts}</p>}
 					</Button>
 				</Link>
 			</Stack>

@@ -1,65 +1,93 @@
-import React from "react";
-import { Box, Flex, Heading, HStack, Link, Stack } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import {
+	IconButton,
+	Box,
+	Text,
+	Image,
+	Stack,
+    Flex,
+    Link,
+	useColorModeValue as mode,
+} from "@chakra-ui/react";
+import { MdOutlineClose } from "react-icons/md";
+import { CartContext } from "../../context/CartContext";
 
-const CartItem = () => {
+const CartItem = (product) => {
+	const { removeProduct, getQtyProducts } = useContext(CartContext);
+	const { title, image, id, price } = product;
+
 	return (
-		<Box
-			maxW={{
-				base: "3xl",
-				lg: "7xl",
-			}}
-			mx="auto"
-			px={{
-				base: "4",
-				md: "8",
-				lg: "12",
-			}}
-			py={{
-				base: "6",
-				md: "8",
-				lg: "12",
-			}}
-		>
-			<Stack
+		<>
+			<Flex
 				direction={{
 					base: "column",
-					lg: "row",
+					md: "row",
 				}}
-				align={{
-					lg: "flex-start",
-				}}
-				spacing={{
-					base: "8",
-					md: "16",
-				}}
+				justify="space-between"
+				align="center"
 			>
-				<Stack
-					spacing={{
-						base: "8",
-						md: "10",
-					}}
-					flex="2"
-				>
-					<Heading fontSize="2xl" fontWeight="extrabold">
-						Shopping Cart (3 items)
-					</Heading>
-
-					<Stack spacing="6">
-						{cartData.map((item) => (
-							<CartItem key={item.id} {...item} />
-						))}
-					</Stack>
+				<Stack direction="row" spacing="5" width="full">
+					<Image
+						rounded="lg"
+						width="120px"
+						height="120px"
+						fit="cover"
+						src={image}
+						alt="imagen producto {title}"
+						draggable="false"
+						loading="lazy"
+					/>
+					<Box pt="4">
+						<Stack spacing="0.5">
+							<Text fontWeight="medium">{title}</Text>
+							<Text color={mode("gray.600", "gray.400")} fontSize="sm">
+								Cantidad: {getQtyProducts()}
+							</Text>
+						</Stack>
+					</Box>
 				</Stack>
 
-					{/* resumen de compra */}
-				<Flex direction="column" align="center" flex="1">
-					<HStack mt="6" fontWeight="semibold">
-						<p>or</p>
-						<Link colorScheme={teal}>Continue shopping</Link>
-					</HStack>
+				{/* Desktop */}
+				<Flex
+					width="full"
+					justify="space-between"
+					display={{
+						base: "none",
+						md: "flex",
+					}}
+				>
+					
+					<Text fontWeight="medium">sub-total: $ {price}</Text>
+                 
+					<IconButton
+                        icon={<MdOutlineClose />}
+						aria-label={`Delete ${title} from cart`}
+                        colorScheme="teal"
+						variant="solid"
+						size="lg"
+						onClick={() => removeProduct(id)}
+					/>
 				</Flex>
-			</Stack>
-		</Box>
+
+				{/* Mobile */}
+				<Flex
+					mt="4"
+					align="center"
+					width="full"
+					justify="space-between"
+					display={{
+						base: "flex",
+						md: "none",
+					}}
+				>
+					<Link fontSize="sm" textDecor="underline">
+						Delete
+					</Link>
+					
+					<Text fontWeight="medium">{price}</Text>
+				</Flex>
+			</Flex>
+		</>
 	);
 };
 

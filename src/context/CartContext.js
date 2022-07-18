@@ -45,10 +45,10 @@ const CartCustomProvider = ({ children }) => {
 		<Provider
 			value={{
 				products,
+				getQtyProducts,
 				addProduct,
 				removeProduct,
 				isInCart,
-				getQtyProducts,
 				clearCart,
 				qtyProducts,
 			}}
