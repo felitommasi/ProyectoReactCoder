@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 const ItemDetail = ({ product }) => {
+	const { title, price, image, description } = product;
 	const [buyFinalized, setBuyFinalized] = useState(false);
 	const { addProduct } = useContext(CartContext);
 
@@ -36,7 +37,7 @@ const ItemDetail = ({ product }) => {
 				>
 					<Flex>
 						<Image
-							src={product.image}
+							src={image}
 							alt={"product image"}
 							overflow={"hidden"}
 							align={"center"}
@@ -53,14 +54,14 @@ const ItemDetail = ({ product }) => {
 								fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
 								mb={4}
 							>
-								{product.title}
+								{title}
 							</Heading>
 							<Text
 								color={useColorModeValue("gray.900", "gray.400")}
 								fontWeight={300}
 								fontSize={"2xl"}
 							>
-								$ {product.price}
+								$ {price}
 							</Text>
 						</Box>
 
@@ -74,12 +75,12 @@ const ItemDetail = ({ product }) => {
 							}
 						>
 							<VStack spacing={{ base: 4, sm: 6 }}>
-								<Text fontSize={"lg"}>{product.description}</Text>
+								<Text fontSize={"lg"}>{description}</Text>
 							</VStack>
 							{buyFinalized ? (
 								<Link to="/cart">
 									<Button colorScheme="teal" my={4}>
-										Finalizar Compra
+										Finalizar compra
 									</Button>
 								</Link>
 							) : (

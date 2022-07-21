@@ -36,16 +36,15 @@ const CartCustomProvider = ({ children }) => {
 	const isInCart = (id) => {
 		return products.some((products) => products.id === id);
 	};
-	
+
 	const clearCart = () => {
 		setProducts([]);
 	};
 
-	console.log(products);
-
-	const totalPrice = () =>{
-		return products.reduce((prev, actual) => prev + actual.qty * actual.price, 0);
-	}
+	const totalPrice = () => {
+		return products.reduce(
+			(prev, actual) => prev + actual.qty * actual.price, 0);
+	};
 
 	return (
 		<Provider
@@ -57,7 +56,7 @@ const CartCustomProvider = ({ children }) => {
 				isInCart,
 				clearCart,
 				qtyProducts,
-				totalPrice
+				totalPrice,
 			}}
 		>
 			{children}

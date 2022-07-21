@@ -58,7 +58,10 @@ function Cart() {
 						</Stack>
 					</Stack>
 
-					<Button onClick={() => clearCart()}>Vaciar carrito</Button>
+				
+                {products.length > 0 && <Button onClick={() => clearCart()}>Vaciar carrito</Button>}
+                
+    
 				</Stack>
 				<Text fontWeight="medium">{totalPrice() === 0 ? <p display="none"/> : <p>Total: $ {totalPrice()}</p>}</Text>
 			</Box>
