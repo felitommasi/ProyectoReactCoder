@@ -8,8 +8,8 @@ const Item = ({ product }) => {
 
 	return (
 		<Box display="flex" flexDirection="column" boxShadow="md" maxW="270px" rounded="4px" h="auto" overflow="hidden" bg="gray.50">
-			<Box h="200" w={"100%"} align={"center"} overflow="hidden">
-				<Image src={image} fallbackSrc="https://via.placeholder.com/300" />
+			<Box h="200" w={"100%"} align={"top"} overflow="hidden" bg="white">
+				<Image align="center" src={image} fallbackSrc="https://via.placeholder.com/300" objectFit='cover'/>
 			</Box>
 			<Spacer />
 			<Box maxH="80px">

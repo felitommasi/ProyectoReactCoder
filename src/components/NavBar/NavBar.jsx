@@ -25,18 +25,18 @@ const navLinks = [
 	},
 	{
 		id: 2,
-		path: "/category/Electronics",
-		name: "Electronics",
+		path: "/category/Tech",
+		name: "Tech",
 	},
 	{
 		id: 3,
-		path: "/category/Clothes",
-		name: "Clothes",
+		path: "/category/Fashion",
+		name: "Fashion",
 	},
 	{
 		id: 4,
-		path: "/category/Others",
-		name: "Others",
+		path: "/category/Furniture",
+		name: "Furniture",
 	},
 ];
 
