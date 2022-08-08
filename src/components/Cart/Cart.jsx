@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Box, Button, Heading, Stack, HStack, Text } from "@chakra-ui/react";
 import CartItem from "../CartItem/CartItem";
 import { CartContext } from "../../context/CartContext";
-import Checkout from "../Checkout/Checkout";
+
 
 function Cart() {
-	const { qtyProducts, products, clearCart, totalPrice } = useContext(CartContext);
+	const { qtyProducts, products, clearCart, totalPrice } = useContext(
+		CartContext
+	);
 
 	return (
 		<div>
@@ -65,11 +67,11 @@ function Cart() {
 									</Button>
 								</Link>
 							) : (
-								<Route path="/checkout" element={<Checkout />}>
+								<Link to="/checkout">
 									<Button colorScheme="teal" my={4}>
 										Proceed to Checkout
 									</Button>
-								</Route>
+								</Link>
 							)}
 
 							{products.length > 0 && (
@@ -90,6 +92,6 @@ function Cart() {
 			</Box>
 		</div>
 	);
-}
+};
 
 export default Cart;

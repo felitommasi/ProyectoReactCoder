@@ -8,6 +8,7 @@ import {
 	Button,
     Box,  
 } from "@chakra-ui/react";
+import Swal from 'sweetalert2'
 
 
 export default function Checkout() {
@@ -17,9 +18,15 @@ export default function Checkout() {
 		formState: { errors, isSubmitting },
 	} = useForm();
 
+
 	function onSubmit(data) {
-		//integrar sweet alert
-        console.log(data);
+        setTimeout(() => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Your purchase was successfully sent',
+                datos: data,
+                })
+        },1000);
 	}
 
 	return (
