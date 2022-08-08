@@ -27,7 +27,7 @@ const Item = ({ product }) => {
 			<Center h="90px">
 				<Link to={`/detail/${id}`}>
 					<Button colorScheme="teal" my={4}>	
-						Ver Detalle
+						See More
 					</Button>
 				</Link>
 			</Center>

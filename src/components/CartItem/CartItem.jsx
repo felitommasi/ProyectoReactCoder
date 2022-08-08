@@ -47,12 +47,6 @@ const CartItem = (product) => {
 								Cantidad: {product.qty}
 							</Text>
 
-{/* 							<ButtonGroup size="sm" isAttached variant="outline">
-								<IconButton aria-label="Remove product" icon={<MdRemove />} onClick={() => removeProduct(product)}/>
-								<Button>Cantidad: {product.qty}</Button>
-								<IconButton aria-label="Add product" icon={<MdAdd />} onClick={() => addProduct(product)}/>
-							</ButtonGroup> */}
-
 							<Spacer />
 							<Text fontWeight="medium">
 								sub-total: $ {product.qty * price}

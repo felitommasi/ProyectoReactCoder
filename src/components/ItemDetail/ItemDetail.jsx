@@ -15,6 +15,7 @@ import {
 	SimpleGrid,
 	StackDivider,
 	useColorModeValue,
+	HStack
 } from "@chakra-ui/react";
 
 const ItemDetail = ({ product }) => {
@@ -78,11 +79,18 @@ const ItemDetail = ({ product }) => {
 								<Text fontSize={"lg"}>{description}</Text>
 							</VStack>
 							{buyFinalized ? (
-								<Link to="/cart">
-									<Button colorScheme="teal" my={4}>
-										Finalizar compra
-									</Button>
-								</Link>
+								<HStack>
+									<Link to="/cart">
+										<Button colorScheme="teal" my={4}>
+											Finish shopping
+										</Button>
+									</Link>
+									<Link to="/">
+										<Button colorScheme="teal" variant='ghost' my={4}>
+											Continue shopping
+										</Button>
+									</Link>
+								</HStack>
 							) : (
 								<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
 							)}

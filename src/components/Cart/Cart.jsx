@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
+import { Link, Route } from "react-router-dom";
+import { Box, Button, Heading, Stack, HStack, Text } from "@chakra-ui/react";
 import CartItem from "../CartItem/CartItem";
 import { CartContext } from "../../context/CartContext";
+import Checkout from "../Checkout/Checkout";
 
 function Cart() {
-	const { qtyProducts, products, clearCart, totalPrice } = useContext(
-		CartContext
-	);
+	const { qtyProducts, products, clearCart, totalPrice } = useContext(CartContext);
 
 	return (
 		<div>
 			<Box
-				maxW={{
-					base: "3xl",
-					lg: "7xl",
+				maxW={{ 
+					base: "3xl", 
+					lg: "7xl" 
 				}}
 				mx="auto"
 				px={{
@@ -48,7 +48,7 @@ function Cart() {
 						flex="2"
 					>
 						<Heading fontSize="2xl" fontWeight="extrabold">
-							Tenés {qtyProducts} productos en tu carrito
+							You have {qtyProducts} products in your cart.
 						</Heading>
 
 						<Stack spacing="6">
@@ -56,14 +56,37 @@ function Cart() {
 								<CartItem key={item.id} {...item} />
 							))}
 						</Stack>
-					</Stack>
 
-				
-                {products.length > 0 && <Button onClick={() => clearCart()}>Vaciar carrito</Button>}
-                
-    
+						<HStack>
+							{qtyProducts === 0 ? (
+								<Link to="/">
+									<Button colorScheme="teal" my={4}>
+										Start shopping!
+									</Button>
+								</Link>
+							) : (
+								<Route path="/checkout" element={<Checkout />}>
+									<Button colorScheme="teal" my={4}>
+										Proceed to Checkout
+									</Button>
+								</Route>
+							)}
+
+							{products.length > 0 && (
+								<Button colorScheme="gray" my={4} onClick={() => clearCart()}>
+									Empty Cart
+								</Button>
+							)}
+						</HStack>
+						<Text fontWeight="bold">
+							{totalPrice() === 0 ? (
+								<p display="none" />
+							) : (
+								<p>Total: $ {totalPrice()}</p>
+							)}
+						</Text>
+					</Stack>
 				</Stack>
-				<Text fontWeight="medium">{totalPrice() === 0 ? <p display="none"/> : <p>Total: $ {totalPrice()}</p>}</Text>
 			</Box>
 		</div>
 	);

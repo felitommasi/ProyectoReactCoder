@@ -1,6 +1,6 @@
 import React, { useState, /* useEffect */ } from "react";
 import { Button, HStack, VStack } from "@chakra-ui/react";
-import { MdShoppingCart } from "react-icons/md";
+import { MdAddShoppingCart } from "react-icons/md";
 
 const ItemCount = ({ stock, onAdd }) => {
 	const [count, setCount] = useState(1);
@@ -36,12 +36,12 @@ const ItemCount = ({ stock, onAdd }) => {
 			</HStack>
 
 			<Button
-				rightIcon={<MdShoppingCart />}
+				rightIcon={<MdAddShoppingCart />}
 				disabled={stock <= 0}
 				onClick={() => onAdd(count)}
 				colorScheme="teal"
 			>
-				Agregar al carrito
+				Add to Cart
 			</Button>
 		</VStack>
 	);
