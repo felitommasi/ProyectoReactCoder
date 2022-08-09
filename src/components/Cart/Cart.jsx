@@ -6,9 +6,7 @@ import { CartContext } from "../../context/CartContext";
 
 
 function Cart() {
-	const { qtyProducts, products, clearCart, totalPrice } = useContext(
-		CartContext
-	);
+	const { qtyProducts, products, clearCart, totalPrice } = useContext(CartContext);
 
 	return (
 		<div>
