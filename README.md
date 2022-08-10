@@ -16,12 +16,6 @@ Clone the project
   git clone https://github.com/felitommasi/ProyectoReactCoder.git
 ```
 
-Go to the project directory
-
-```bash
-  cd ProyectoReactCoder
-```
-
 Install dependencies
 
 ```bash
